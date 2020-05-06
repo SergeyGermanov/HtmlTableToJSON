@@ -267,6 +267,7 @@
       </div>
     </div>
 
+    <h4>DELETE and CREATE DEMO</h4>
     <!-- Table for JS delete and create -->
     <table id="myTable">
       <tr>
@@ -293,6 +294,62 @@
     </table>
     <button onclick="myCreateFunction()">Create row</button>
 
+    <!-- column select and hide JQuery -->
+    <h4>Column select and hide</h4>
+
+    <select id="tax" class="form-control tax">
+      <option value="tax-none" selected="selected">No</option>
+      <option value="tax-one">1 Tax</option>
+      <option value="tax-two">2 Taxes</option>
+    </select>
+
+    <hr />
+
+    <table>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Tax 1</td>
+          <td>Tax 2</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Tax 1</td>
+          <td>Tax 2</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Tax 1</td>
+          <td>Tax 2</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Tax 1</td>
+          <td>Tax 2</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Tax 1</td>
+          <td>Tax 2</td>
+        </tr>
+      </tbody>
+    </table>
+
     <script>
       // add new row to myTable
       function myCreateFunction() {
@@ -311,6 +368,20 @@
         var i = r.parentNode.parentNode.rowIndex;
         document.getElementById("myTable").deleteRow(i);
       }
+    </script>
+    <!-- script for Coulumn table -->
+    <script>
+      $("#tax").change(function () {
+        var $first = $("table").find("tr").find("td:nth-child(5)"),
+          $second = $("table").find("tr").find("td:nth-child(6)"),
+          $v = $(this).val();
+
+        $first.hide();
+        $second.hide();
+
+        if ($v == "tax-one") $first.show();
+        else if ($v == "tax-two") $second.show();
+      });
     </script>
   </body>
 </html>
